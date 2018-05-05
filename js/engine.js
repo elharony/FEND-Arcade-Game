@@ -167,12 +167,9 @@ var Engine = (function(global) {
 
     // Game Over
     function gameOver() {
-        setTimeout(function() {
-            // Reset the player position!
-            player.y = 390;
-            // Game Over Message
-            console.log("Game Over!");            
-        }, 500)
+        alert("Game Over!");
+        // Reset Variables
+        reset();
     }
 
     /*
@@ -186,13 +183,10 @@ var Engine = (function(global) {
     const livesContainer = document.querySelector("#lives");
     livesContainer.innerHTML = lives;
     function removeLive() {
-        if(lives === 1) {
+        lives--;
+        livesContainer.innerHTML = lives;
+        if(lives === 0) {
             gameOver();
-            console.log(lives);
-        } else {
-            lives--;
-            livesContainer.innerHTML = lives;
-            console.log(lives);
         }
     }
 
@@ -201,7 +195,8 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        lives = 3;
+        livesContainer.innerHTML = lives;
     }
 
     /* Go ahead and load all of the images we know we're going to need to
