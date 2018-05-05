@@ -25,10 +25,10 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player = function() {
+var Player = function(x, y) {
     this.image = 'images/char-boy.png';
-    this.x = 200;
-    this.y = 400;
+    this.x = x;
+    this.y = y;
 };
 
 Player.prototype.update = function(dt) {
@@ -39,6 +39,32 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.image), this.x, this.y);
 }
 
+Player.prototype.handleInput = function(keyCode) {
+    switch(keyCode) {
+        case "up":
+            if(this.y > -35) {
+                this.y -= 85;
+            }
+        break;
+        case "down":
+            if(this.y < 390) {
+                this.y += 85;
+            }
+        break;
+        case "right":
+            if(this.x < 400 ) {
+                this.x += 100;
+            }
+        break;
+        case "left":
+            if(this.x > 0) {
+                this.x -= 100;
+            }
+            
+        break;
+    }
+}
+
 
 // Now instantiate your objects.
 var insect1 = new Enemy(0, 60);
@@ -47,7 +73,7 @@ var insect3 = new Enemy(0, 230);
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [insect1, insect2, insect3];
 // Place the player object in a variable called player
-const player = new Player();
+const player = new Player(200, 390);
 
 
 // This listens for key presses and sends the keys to your
