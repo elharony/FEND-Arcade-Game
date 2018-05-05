@@ -20,13 +20,12 @@ var Engine = (function(global) {
      */
     var doc = global.document,
         win = global.window,
-        canvas = doc.createElement('canvas'),
+        canvas = doc.querySelector("#canvas"),
         ctx = canvas.getContext('2d'),
         lastTime;
 
     canvas.width = 505;
     canvas.height = 606;
-    doc.body.appendChild(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -87,6 +86,7 @@ var Engine = (function(global) {
             if(Math.round(enemy.x) === player.x && enemy.y === player.y) {
                 player.x = 200;
                 player.y = 390;
+                removeLive();
             }
         })
     }
@@ -163,6 +163,37 @@ var Engine = (function(global) {
         });
 
         player.render();
+    }
+
+    // Game Over
+    function gameOver() {
+        setTimeout(function() {
+            // Reset the player position!
+            player.y = 390;
+            // Game Over Message
+            console.log("Game Over!");            
+        }, 500)
+    }
+
+    /*
+     * lives
+     * 
+     *** removeLive()
+     *** addLive() - Coming Soon
+     *
+     */ 
+    let lives = 3;
+    const livesContainer = document.querySelector("#lives");
+    livesContainer.innerHTML = lives;
+    function removeLive() {
+        if(lives === 1) {
+            gameOver();
+            console.log(lives);
+        } else {
+            lives--;
+            livesContainer.innerHTML = lives;
+            console.log(lives);
+        }
     }
 
     /* This function does nothing but it could have been a good place to

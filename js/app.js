@@ -99,12 +99,3 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
-
-Player.prototype.gameOver = function() {
-    setTimeout(function() {
-        // Reset the player position!
-        player.y = 390;
-    }, 500)
-    
-}
