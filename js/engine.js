@@ -102,7 +102,12 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
-        player.update();
+        if(player.update() === -35) {
+            // Reset the player position!
+            player.y = 390;
+            // Change score
+            changeScore("finish");
+        }
     }
 
     /* This function initially draws the "game level", it will then call
@@ -190,13 +195,35 @@ var Engine = (function(global) {
         }
     }
 
+    /*
+     * score
+     * 
+     * 
+     */
+    let score = 0;
+    const scoreContainer = document.querySelector("#score");
+    scoreContainer.innerHTML = score;
+    function changeScore(basedOn) {
+        switch(basedOn) {
+            case "finish":
+                score = score + 20;
+                scoreContainer.innerHTML = score;
+            break;
+        }
+    }
+
+
     /* This function does nothing but it could have been a good place to
      * handle game reset states - maybe a new game menu or a game over screen
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
+        // lives
         lives = 3;
         livesContainer.innerHTML = lives;
+        // Score
+        score = 0;
+        scoreContainer.innerHTML = score;
     }
 
     /* Go ahead and load all of the images we know we're going to need to

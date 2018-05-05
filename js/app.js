@@ -36,12 +36,7 @@ var Player = function(x, y) {
 
 
 Player.prototype.update = function(dt) {
-    if(this.y === -35) {
-        // Reset the player position!
-        setTimeout(function() {
-            player.y = 390;
-        }, 500)
-    }
+    return this.y;
 };
 
 Player.prototype.render = function() {
