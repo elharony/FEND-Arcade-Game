@@ -80,7 +80,7 @@ Player.prototype.gameOver = function() {
 
 
 // Now instantiate your objects.
-var enemy_lineOne_1   = new Enemy(0, 501, 6);
+var enemy_lineOne_1   = new Enemy(0, 50, 6);
 // var enemy_lineOne_2   = new Enemy(-100, 60, 5);
 var enemy_lineTwo_1   = new Enemy(-150, 135, 4);
 // var enemy_lineTwo_2   = new Enemy(-200, 145, 3);
