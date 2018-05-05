@@ -34,8 +34,12 @@ var Player = function(x, y) {
     this.y = y;
 };
 
-Player.prototype.update = function(dt) {
 
+Player.prototype.update = function(dt) {
+    if(this.y === -35) {
+        console.log(this.x);
+        this.gameOver();
+    }
 };
 
 Player.prototype.render = function() {
@@ -68,13 +72,23 @@ Player.prototype.handleInput = function(keyCode) {
     }
 }
 
+Player.prototype.gameOver = function() {
+    alert("YOU WIN!");
+    // Reset the player position!
+    this.y = 390;
+}
+
 
 // Now instantiate your objects.
-var insect1 = new Enemy(0, 60, 1);
-var insect2 = new Enemy(0, 145, 2);
-var insect3 = new Enemy(0, 230, 3);
+var enemy_lineOne_1   = new Enemy(0, 501, 6);
+// var enemy_lineOne_2   = new Enemy(-100, 60, 5);
+var enemy_lineTwo_1   = new Enemy(-150, 135, 4);
+// var enemy_lineTwo_2   = new Enemy(-200, 145, 3);
+var enemy_lineThree_1 = new Enemy(-300, 220, 2);
+// var enemy_lineThree_2 = new Enemy(-400, 230, 1);
 // Place all enemy objects in an array called allEnemies
-const allEnemies = [insect1, insect2, insect3];
+// const allEnemies = [enemy_lineOne_1, enemy_lineOne_2, enemy_lineTwo_1, enemy_lineTwo_2, enemy_lineThree_1, enemy_lineThree_2];
+const allEnemies = [enemy_lineOne_1, enemy_lineTwo_1, enemy_lineThree_1];
 // Place the player object in a variable called player
 const player = new Player(200, 390);
 
