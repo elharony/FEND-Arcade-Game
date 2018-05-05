@@ -72,12 +72,6 @@ Player.prototype.handleInput = function(keyCode) {
     }
 }
 
-Player.prototype.gameOver = function() {
-    alert("YOU WIN!");
-    // Reset the player position!
-    this.y = 390;
-}
-
 
 // Now instantiate your objects.
 var enemy_lineOne_1   = new Enemy(0, 50, 6);
@@ -105,3 +99,12 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
+Player.prototype.gameOver = function() {
+    setTimeout(function() {
+        // Reset the player position!
+        player.y = 390;
+    }, 500)
+    
+}
