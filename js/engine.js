@@ -173,7 +173,7 @@ var Engine = (function(global) {
     // Game Over
     function gameOver() {
         
-        swal("Good job!", "You clicked the button!", "success");
+        swal("You did your best!", `Your score is: ${score}`, "success");
 
         // Reset Variables
         reset();
