@@ -13,6 +13,9 @@ ul li {
     font-weight: bold;
 }
 
+.game-starter h2 {
+    margin-bottom: 0;
+}
 .game-starter .char-image.active {
     background: url(../images/Selector.png);
 }
