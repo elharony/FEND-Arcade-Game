@@ -197,8 +197,6 @@ var Engine = (function(global) {
 
     /*
      * score
-     * 
-     * 
      */
     let score = 0;
     const scoreContainer = document.querySelector("#score");
@@ -212,6 +210,16 @@ var Engine = (function(global) {
         }
     }
 
+    /*
+     * Character Image
+     */
+    const charImages = document.querySelectorAll(".char-image");
+    for(let i = 0; i < charImages.length; i++) {
+        charImages[i].addEventListener("click", function() {
+            console.log(this.getAttribute("data-image"));
+            player.image = this.getAttribute("data-image");
+        });
+    }
 
     /* This function does nothing but it could have been a good place to
      * handle game reset states - maybe a new game menu or a game over screen
@@ -235,7 +243,11 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/char-cat-girl.png',
+        'images/char-horn-girl.png',
+        'images/char-pink-girl.png',
+        'images/char-princess-girl.png'
     ]);
     Resources.onReady(init);
 
