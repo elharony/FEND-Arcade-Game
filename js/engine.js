@@ -83,9 +83,11 @@ var Engine = (function(global) {
 
     function checkCollisions() {
         allEnemies.forEach(function(enemy) {
-            if(Math.round(enemy.x) === player.x && enemy.y === player.y) {
-                player.x = 200;
-                player.y = 390;
+            if (player.x < enemy.x + enemy.width &&
+                player.x + player.width > enemy.x &&
+                player.y < enemy.y + enemy.height &&
+                player.height + player.y > enemy.y) {
+                 // collision detected!
                 removeLive();
             }
         })
@@ -190,8 +192,15 @@ var Engine = (function(global) {
     const livesContainer = document.querySelector("#lives");
     livesContainer.innerHTML = lives;
     function removeLive() {
+
+        // Decrease one, Show it in the stats
         lives--;
         livesContainer.innerHTML = lives;
+        
+        // Return the `Player` character to the starter position
+        player.y = 390;
+
+        // Check if the user have `lives` or not
         if(lives === 0) {
             gameOver();
         }
