@@ -1,12 +1,19 @@
 "use strict";
 
+// Get Random Numbers
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
 // Enemies our player must avoid
-var Enemy = function(x, y, speed) {
+var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = x;
     this.y = y;
-    this.speed = speed;
+    this.speed = getRandomInt(1, 5);
     this.width = 50;
     this.height = 85;
     // The image/sprite for our enemies, this uses
@@ -76,11 +83,11 @@ Player.prototype.handleInput = function(keyCode) {
 
 
 // Now instantiate your objects.
-var enemy_lineOne_1   = new Enemy(0, 50, 6);
+var enemy_lineOne_1   = new Enemy(0, 50);
 // var enemy_lineOne_2   = new Enemy(-100, 60, 5);
-var enemy_lineTwo_1   = new Enemy(-150, 135, 4);
+var enemy_lineTwo_1   = new Enemy(-150, 135);
 // var enemy_lineTwo_2   = new Enemy(-200, 145, 3);
-var enemy_lineThree_1 = new Enemy(-300, 220, 2);
+var enemy_lineThree_1 = new Enemy(-300, 220);
 // var enemy_lineThree_2 = new Enemy(-400, 230, 1);
 // Place all enemy objects in an array called allEnemies
 // const allEnemies = [enemy_lineOne_1, enemy_lineOne_2, enemy_lineTwo_1, enemy_lineTwo_2, enemy_lineThree_1, enemy_lineThree_2];
