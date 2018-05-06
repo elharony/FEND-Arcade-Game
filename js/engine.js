@@ -172,7 +172,9 @@ var Engine = (function(global) {
 
     // Game Over
     function gameOver() {
-        alert("Game Over!");
+        
+        swal("Good job!", "You clicked the button!", "success");
+
         // Reset Variables
         reset();
     }
@@ -216,8 +218,14 @@ var Engine = (function(global) {
     const charImages = document.querySelectorAll(".char-image");
     for(let i = 0; i < charImages.length; i++) {
         charImages[i].addEventListener("click", function() {
-            console.log(this.getAttribute("data-image"));
+            // Change the player image
             player.image = this.getAttribute("data-image");
+            // Remove class `active`from all character images
+            charImages.forEach(function(image) {
+                image.classList.remove("active");
+            })
+            // Add class `active` to the selected character image
+            this.classList.add("active");
         });
     }
 
