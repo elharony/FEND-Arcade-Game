@@ -1,3 +1,5 @@
+"use strict";
+
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -45,7 +47,7 @@ Player.prototype.update = function(dt) {
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.image), this.x, this.y);
-}
+};
 
 Player.prototype.handleInput = function(keyCode) {
     switch(keyCode) {
@@ -68,10 +70,9 @@ Player.prototype.handleInput = function(keyCode) {
             if(this.x > 0) {
                 this.x -= 100;
             }
-            
         break;
     }
-}
+};
 
 
 // Now instantiate your objects.
