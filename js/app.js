@@ -18,7 +18,7 @@ var Enemy = function(x, y) {
     this.height = 85;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
+    this.image = 'images/enemy-bug.png';
 };
 
 // Update the enemy's position, required method for game
@@ -33,7 +33,7 @@ Enemy.prototype.update = function(dt) {
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.drawImage(Resources.get(this.image), this.x, this.y);
 };
 
 // Now write your own player class
