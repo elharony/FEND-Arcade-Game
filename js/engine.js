@@ -230,6 +230,9 @@ Want to play again?`;
      */
     const charImages = document.querySelectorAll(".char-image");
     for(let i = 0; i < charImages.length; i++) {
+        // Set the default Character Image
+        charImages[0].classList.add("active");
+        // Loop over Character Images and Change the Selected one based on a 'Click' event
         charImages[i].addEventListener("click", function() {
             // Change the player image
             player.image = this.getAttribute("data-image");
