@@ -1,5 +1,5 @@
 # FEND | Arcade Game
-A Frogger Arcade Game made with Vanilla JavaScript without any external libraries. It is all about crossing the bugs and reach to the `Water` to get some points, and try not to touch a Bug!
+A Frogger Arcade Game built with Vanilla JavaScript without any external libraries. It is all about crossing the bugs and reach to the `Water` to get some points, and try not to touch a Bug!
 
 ## How to Play?
 - Open the [Live Preview](https://elharony.github.io/FEND-Arcade-Game/)
